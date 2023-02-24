@@ -12,6 +12,7 @@
 - Sorting
 - Reorder
 - Pagination
+- Direction (LTR/RTL)
 
 
 ### 3 ways to use the grid

@@ -2,6 +2,8 @@
 
 ## Dynamic Grid - Using web components
 
+### Please use local http-server or live-server from VS code to serve html files from demo folder
+
 ### Features in the grid
 
 - Dynamic grid creation based on `rowData` and `columnDefs`

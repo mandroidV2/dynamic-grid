@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic Grid - Demo</title>
+
+    <style>
+        :root {
+            --background-head: #cecece;
+            --color-head: #000;
+            --color-head-active: #000;
+            --background-foot: rgba(0, 0, 0, 0.1);
+            --color-foot: #000;
+            --background-odd: #eee;
+            --background-even: #fff;
+            --color-odd: #333;
+            --color-even: #222;
+        }
+        dynamic-grid {
+            margin: 20px auto 0;
+            width: 100%;
+            max-width: 1000px;
+        }
+    </style>
+    <script type="module" src="../lib/renderer/price-renderer.js"></script>
+</head>
+<body>
+    <dynamic-grid 
+        data-per-page="20" 
+        data-page="2"
+        data-filter="true"
+        data-sort="true"
+		data-reorder="true"
+        data-debug="true"
+        data-dir="ltr"></dynamic-grid>
+
+    <script type="module" src="../lib/dynamic-grid.js"></script>
+</body>
+</html>

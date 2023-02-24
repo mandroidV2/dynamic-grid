@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Dynamic Grid - Demo</title>
+
+        <style>
+            :root {
+                --background-head: #cecece;
+                --color-head: #000;
+                --color-head-active: #000;
+                --background-foot: rgba(0, 0, 0, 0.1);
+                --color-foot: #000;
+                --background-odd: #eee;
+                --background-even: #fff;
+                --color-odd: #333;
+                --color-even: #222;
+            }
+            dynamic-grid {
+                margin: 20px auto 0;
+                width: 100%;
+                max-width: 1000px;
+            }
+        </style>
+        <script type="module" src="../lib/renderer/price-renderer.js"></script>
+    </head>
+    <body>
+        <script type="module">
+            import DynamicGrid from "../lib/dynamic-grid.js";
+
+            // column definition
+            const columnDefs = [
+                { field: "make", title: "Make Title", transform: "uppercase" },
+                { field: "model", title: "Model Title" },
+                { field: "price", cellRenderer: "<price-renderer>{_tv}</price-renderer>" }
+            ];
+
+             // get grid data from api
+             const promise = new Promise((resolve, _reject) => {
+                setTimeout(() => {
+                    const rowData = [
+                        { make: "Toyota", model: "Celica", price: 35000 },
+                        { make: "Ford", model: "Mondeo", price: 32000 },
+                        { make: "Porsche", model: "Boxster", price: 72000 },
+                        { make: "Lexus", model: "Nexus", price: 35000 },
+                        { make: "Maruti", model: "Suzuki", price: 32000 },
+                        { make: "Hyundai", model: "Grandi10", price: 72000 },
+                        { make: "Hero", model: "Honda", price: 35000 },
+                        { make: "Audi", model: "Q3", price: 32000 },
+                        { make: "Porsche-New", model: "Boxster-New", price: 72000 },
+                        { make: "Toyota-New", model: "Celica-New", price: 35000 },
+                        { make: "Ford-New", model: "Mondeo-New", price: 32000 },
+                        { make: "Porsche-Refurbished", model: "Boxster-Refurbished", price: 72000 }
+                    ];
+                    resolve(rowData);
+                }, 100)
+            });
+
+            promise.then(response => {
+                const grid = new DynamicGrid({
+                    page: 1,
+                    perPage: 10,
+                    sort: true,
+                    filter: true,
+                    reorder: true,
+                    dir: "ltr",
+                    rowData: JSON.stringify(response),
+                    columnDefs: JSON.stringify(columnDefs),
+                    debug: true
+                });
+                document.body.appendChild(grid);
+            }).catch(error => {
+                console.error(error);
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "dynamic-grid",
+  "version": "1.0.0",
+  "description": "Dynamic Grid - Component",
+  "keywords": [
+    "javascript",
+    "grid",
+    "webcomponents",
+    "table",
+    "customelements",
+    "es6"
+  ],
+  "dependencies": {},
+  "main": "lib/dynamic-grid.js",
+  "author": {
+    "name": "Manish Agrawal"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git"
+  },
+  "devDependencies": {},
+}
